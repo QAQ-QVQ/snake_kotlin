@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <!--蛇-->
+    <color name="colorSnake">#03A9F4</color>
+    <!--食物-->
+    <color name="colorFood">#FA503A</color>
+    <!--空格-->
+    <color name="colorBox">#FFFFFF</color>
+    <!--线条-->
+    <color name="colorRaw">#9D0FD1</color>
+</resources>
