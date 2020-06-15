@@ -22,10 +22,10 @@ import com.yu.snake.gameModel.GridSquare
 class GameView : View, IGameView {
     private var TAG: String = "GameView"
     //x轴格子数目
-    var mGridSizeX: Int = 0
+    private var mGridSizeX: Int = 0
     //y轴格子数目
-    var mGridSizeY: Int = 0
-    var mRectSize: Int = GridSquare().GrldSize
+    private var mGridSizeY: Int = 0
+    private var mRectSize: Int = GridSquare().GrldSize
     // 格子画笔
     private var mGridPaint: Paint = Paint()
     //边缘画笔

@@ -10,7 +10,7 @@ import java.util.*
  **/
 class Snake {
     var SnakeBody: LinkedList<GridSquare> = LinkedList()
-   lateinit var SnakeDirection: GameConfig
+    var SnakeDirection: GameConfig
 
     constructor(SnakeHead: GridSquare, SnakeDirection: GameConfig) {
         SnakeHead.Type = GameConfig.SNAKE
@@ -31,21 +31,5 @@ class Snake {
     fun EatFood(food: Food) {
         food.gridSquare.Type = GameConfig.SNAKE
         SnakeBody.add(food.gridSquare)
-    }
-
-    fun move(SnakeDirection: GameConfig) {
-        when (SnakeDirection) {
-            GameConfig.LEFT -> "SS"
-            GameConfig.RIGHT -> "ss"
-//                    snake.getSnakeTail().Type = gameObject.GRID
-//                    snakeHead = mGridSquare[snake.getSnakeHead().x + 1][snake.getSnakeHead().y]
-//                    snake.SnakeBody.remove(snake.getSnakeTail())
-//                snakeHead.Type = gameObject.SNAKE
-//                snake.SnakeBody.add(0, snakeHead)
-//
-//            }
-            GameConfig.UP -> "qq"
-            GameConfig.DOWN -> "ww"
-        }
     }
 }

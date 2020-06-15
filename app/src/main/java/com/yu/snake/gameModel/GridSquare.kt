@@ -2,9 +2,7 @@ package com.yu.snake.gameModel
 
 import android.content.Context
 import android.graphics.Color
-import android.util.Log
 import com.yu.snake.GameConfig
-import com.yu.snake.gameManager.GameManager
 import com.yu.snake.R
 
 

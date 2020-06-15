@@ -1,7 +1,6 @@
 package com.yu.snake.gameManager
 
 import android.content.Context
-import android.text.Selection.*
 import android.util.Log
 import com.yu.snake.GameConfig
 import com.yu.snake.gameModel.Food
@@ -9,7 +8,6 @@ import com.yu.snake.gameModel.GridSquare
 import com.yu.snake.gameModel.Snake
 import com.yu.snake.gameView.IGameView
 import java.lang.IndexOutOfBoundsException
-import java.lang.NullPointerException
 import java.util.*
 import kotlin.collections.ArrayList
 
