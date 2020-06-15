@@ -1,6 +1,7 @@
 package com.yu.snake.gameModel
 
-import com.yu.snake.gameManager.GameManager
+import com.yu.snake.GameConfig
+
 
 /**
  *   CREATED BY DY ON 2020/6/10.
@@ -9,9 +10,8 @@ import com.yu.snake.gameManager.GameManager
  **/
 class Food {
     var gridSquare: GridSquare
-
     constructor(gridSquare: GridSquare) {
-        gridSquare.Type = GameManager().GameObject().FOOD
+        gridSquare.Type = GameConfig.FOOD
         this.gridSquare = gridSquare
     }
 }

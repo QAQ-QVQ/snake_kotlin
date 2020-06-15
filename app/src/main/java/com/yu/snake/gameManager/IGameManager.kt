@@ -8,4 +8,8 @@ package com.yu.snake.gameManager
 interface IGameManager {
     fun StartGame()
     fun InitData()
+    fun MoveLeft()
+    fun MoveRight()
+    fun MoveUp()
+    fun MoveDown()
 }

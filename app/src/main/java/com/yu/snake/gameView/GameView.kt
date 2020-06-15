@@ -12,11 +12,7 @@ import android.view.View
 import android.widget.Toast
 import com.yu.snake.R
 import com.yu.snake.gameManager.GameManager
-import com.yu.snake.gameModel.Food
 import com.yu.snake.gameModel.GridSquare
-import com.yu.snake.gameModel.Snake
-import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  *   CREATED BY DY ON 2020/6/8.
@@ -26,15 +22,17 @@ import kotlin.collections.ArrayList
 class GameView : View, IGameView {
     private var TAG: String = "GameView"
     //x轴格子数目
-    var mGridSizeX: Int = 25
+    var mGridSizeX: Int = 0
     //y轴格子数目
-    var mGridSizeY: Int = 25
-    //格子尺寸 单位px
-    var mRectSize: Int = 40
+    var mGridSizeY: Int = 0
+    var mRectSize: Int = GridSquare().GrldSize
     // 格子画笔
     private var mGridPaint: Paint = Paint()
     //边缘画笔
     private var mStrokePaint: Paint = Paint()
+    //地图的二维数组
+    private lateinit var mGridSquare: ArrayList<ArrayList<GridSquare>>
+
     private lateinit var gameManager: GameManager
 
     constructor(context: Context) : super(context) {
@@ -51,18 +49,22 @@ class GameView : View, IGameView {
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-        mGridSizeX = (w / mRectSize) - 2
-        mGridSizeY = (h / mRectSize) - 2
+//        mGridSizeX = (w / mRectSize) - 2
+//        mGridSizeY = (h / mRectSize) - 2
+        mGridSizeX = 10
+        mGridSizeY = 10
         gameManager = GameManager(context, this, mGridSizeX, mGridSizeY)
         gameManager.InitData()
     }
 
-    override fun InitSuccess() {
+    override fun InitSuccess(mGridSquare: ArrayList<ArrayList<GridSquare>>) {
+        this.mGridSquare = mGridSquare
         gameManager.StartGame()
     }
 
     //刷新数据
-    override fun PostInvalidate() {
+    override fun PostInvalidate(mGridSquare: ArrayList<ArrayList<GridSquare>>) {
+        this.mGridSquare = mGridSquare
         postInvalidate()
     }
 
@@ -77,8 +79,7 @@ class GameView : View, IGameView {
                 }
                 .setNegativeButton("退出") { dialog, _ ->
                     dialog.dismiss()
-                    Toast.makeText(context,"菜逼啊！",Toast.LENGTH_SHORT).show()
-                    // TODO: 2019/12/9 退出操作待定
+                    Toast.makeText(context, "菜逼啊！", Toast.LENGTH_SHORT).show()
                     System.exit(0)
                 }
                 .create()
@@ -114,23 +115,19 @@ class GameView : View, IGameView {
                     // (直接<0 会有些许误差，我们可以 <-5)
                     if (offsetX < -5) {
                         // 左
-                        if (!(gameManager.snake.SnakeDirection === gameManager.GameDirection().RIGHT))
-                            gameManager.snake.SnakeDirection = gameManager.gameDirection.LEFT
+                        gameManager.MoveLeft()
                     } else if (offsetX > 5) {
                         // 右
-                        if (!(gameManager.snake.SnakeDirection === gameManager.GameDirection().LEFT))
-                            gameManager.snake.SnakeDirection = gameManager.GameDirection().RIGHT
+                        gameManager.MoveRight()
                     }
                     // 开始计算垂直方向上下的滑动
                 } else {
                     if (offsetY < -5) {
                         // 上
-                        if (!(gameManager.snake.SnakeDirection === gameManager.GameDirection().DOWN))
-                            gameManager.snake.SnakeDirection = gameManager.GameDirection().UP
+                        gameManager.MoveUp()
                     } else if (offsetY > 5) {
                         // 下
-                        if (!(gameManager.snake.SnakeDirection === gameManager.GameDirection().UP))
-                            gameManager.snake.SnakeDirection = gameManager.GameDirection().DOWN
+                        gameManager.MoveDown()
                     }
                 }
             }
@@ -159,7 +156,7 @@ class GameView : View, IGameView {
                 val right = left + mRectSize
                 val bottom = top + mRectSize
                 canvas?.drawRect(left.toFloat(), top.toFloat(), right.toFloat(), bottom.toFloat(), mStrokePaint)
-                mGridPaint.color = gameManager.mGridSquare[i][j].getColor()//更新格子的颜色
+                mGridPaint.color = mGridSquare[i][j].getColor()//更新格子的颜色
                 canvas?.drawRect(left.toFloat(), top.toFloat(), right.toFloat(), bottom.toFloat(), mGridPaint)
             }
         }
