@@ -47,10 +47,11 @@
 
       - 格子的种类（用来渲染画面）
     - x坐标，y坐标（用来确定位置）
-      - 格子的尺寸
-
-    - 方法
-
+      
+  - 格子的尺寸
+      
+  - 方法
+  
       - 获取格子的颜色
       
       - ```kotlin
@@ -67,8 +68,8 @@
             }
         ```
       
-    - 所以对象写法为
-
+  - 对象
+  
       - ```kotlin
         class GridSquare {
             private var TAG: String = "GridSquare"
@@ -100,24 +101,24 @@
                 }
             }
         }
-        ```
-
-      - 其中GameConfig为
-
+      ```
+  
+    - 其中GameConfig为
+  
         - ```kotlin
           enum class GameConfig {
               LEFT,RIGHT,UP,DOWN,GRID,SNAKE,FOOD
           }
-          ```
-
-          其主要作用是用来区分状态
-
-  - 食物
-
-    - 食物作为特殊的格子，其于格子的区别就在于格子的颜色不同
-
-    - 属性
-
+        ```
+  
+        其主要作用是用来区分状态
+  
+- 食物
+  
+  - 食物作为特殊的格子，其于格子的区别就在于格子的颜色不同
+  
+  - 属性
+  
       - 格子
       
       - ```kotlin
@@ -127,10 +128,10 @@
                 gridSquare.Type = GameConfig.FOOD
                 this.gridSquare = gridSquare
             }
-      }
+        }
         ```
-  - 蛇
-
+- 蛇
+  
     - 属性
       - 蛇身体
       - 蛇方向
@@ -139,9 +140,9 @@
     - 方法
       - 蛇头
       - 蛇尾
-
+    
     - 对象
-
+    
       - ```kotlin
         class Snake {
             var SnakeBody: LinkedList<GridSquare> = LinkedList()
@@ -170,7 +171,8 @@
         }
         ```
 
-        
+
+​        
 
 ---
 
