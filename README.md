@@ -128,7 +128,7 @@
                 this.gridSquare = gridSquare
             }
       }
-
+        ```
   - 蛇
 
     - 属性
