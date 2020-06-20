@@ -36,7 +36,6 @@ class GameManager : IGameManager {
     //y轴格子数目
     private var mGridSizeY: Int = 0
 
-    constructor()
     constructor(context: Context, iGameView: IGameView, mGridSizeX: Int, mGridSizeY: Int) {
         Log.i(TAG, "init")
         this.iGameView = iGameView

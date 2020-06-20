@@ -128,9 +128,6 @@
                 this.gridSquare = gridSquare
             }
       }
-        ```
-      
-        
 
   - 蛇
 
