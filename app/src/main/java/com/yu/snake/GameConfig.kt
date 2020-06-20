@@ -6,5 +6,5 @@ package com.yu.snake
  *   @author DY
  **/
 enum class GameConfig {
-    LEFT,RIGHT,UP,DOWN,GRID,SNAKE,FOOD,
+    LEFT,RIGHT,UP,DOWN,GRID,SNAKE,FOOD
 }

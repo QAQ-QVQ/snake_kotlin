@@ -49,10 +49,10 @@ class GameView : View, IGameView {
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-//        mGridSizeX = (w / mRectSize) - 2
-//        mGridSizeY = (h / mRectSize) - 2
-        mGridSizeX = 10
-        mGridSizeY = 10
+        mGridSizeX = (w / mRectSize) - 2
+        mGridSizeY = (h / mRectSize) - 2
+//        mGridSizeX = 10
+//        mGridSizeY = 10
         gameManager = GameManager(context, this, mGridSizeX, mGridSizeY)
         gameManager.InitData()
     }
@@ -66,6 +66,7 @@ class GameView : View, IGameView {
     override fun PostInvalidate(mGridSquare: ArrayList<ArrayList<GridSquare>>) {
         this.mGridSquare = mGridSquare
         postInvalidate()
+//        invalidate()
     }
 
     //显示弹框

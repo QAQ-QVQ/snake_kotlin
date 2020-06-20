@@ -201,7 +201,7 @@ class GameManager : IGameManager {
         var foodX = Random().nextInt(mGridSizeX)
         var foodY = Random().nextInt(mGridSizeY)
         var i = 0
-        while (i < snake.SnakeBody.size - 1) {
+        while (i < snake.SnakeBody.size) {
             if (foodX == snake.SnakeBody[i].x && foodY == snake.SnakeBody[i].y) {
                 //不能生成在蛇身上
                 foodX = Random().nextInt(mGridSizeX)
